@@ -12,7 +12,7 @@ $router->respond('[*:url]', function($request, $response){
     $reqUrl = piratebay . $request->param('url');
 
     $resp   = $client->request('GET', piratebay . $request->param('url'));
-    $response->header($resp->getHeaderLine('content-type'));
+    $response->header('content-type', $resp->getHeaderLine('content-type'));
     $resp   = $resp->getBody();
     $resp   = str_replace('//thepiratebay.org', proxy_url, $resp);
 
