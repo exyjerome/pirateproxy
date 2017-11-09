@@ -14,7 +14,7 @@ $router->respond('[*:url]', function($request, $response){
     $resp   = $client->request('GET', piratebay . $request->param('url'));
     $resp   = $resp->getBody();
     $resp   = str_replace('//thepiratebay.org', proxy_url, $resp);
-    $response->header($resp->getHeaderLine('content-type');
+    $response->header($resp->getHeaderLine('content-type'));
 
     return $resp;
 });
