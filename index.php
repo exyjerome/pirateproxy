@@ -11,7 +11,7 @@ $router->respond('[*:url]', function($request, $response){
     $reqUrl = piratebay . $request->param('url');
     var_dump($reqUrl);
     $resp   = $client->request('GET', piratebay . $request->param('url'));
-    var_dump ($resp->getBody());
+    echo $resp->getBody();
 });
 
 $router->dispatch();
