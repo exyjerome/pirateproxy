@@ -15,7 +15,7 @@ $router->respond('[*:url]', function($request, $response){
     $response->header('content-type', $resp->getHeaderLine('content-type'));
     $resp   = $resp->getBody();
     $resp   = str_replace('//thepiratebay.org', proxy_url, $resp);
-    $html   = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $resp);
+    $html   = preg_replace_all('/<.*?script.*?>.*?<\/.*?script.*?>/igm', '', $resp);
 
     return $resp;
 });
